@@ -136,9 +136,9 @@ ADD nginx.service /usr/lib/systemd/system/nginx.service
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
 
 RUN systemctl enable php-fpm &&\
-    systemctl start php-fpm &&\
-    systemctl enable nginx &&\
-    systemctl start nginx
+
+    systemctl enable nginx 
+
 #Start
 #ADD start.sh /start.sh
 #RUN chmod +x /start.sh
