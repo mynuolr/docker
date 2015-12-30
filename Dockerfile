@@ -144,7 +144,7 @@ RUN systemctl enable php-fpm &&\
 #RUN chmod +x /start.sh
 
 #Set port
-EXPOSE 80 443
+EXPOSE 22 80 443
 
 #ENTRYPOINT ["/start.sh"]
 
