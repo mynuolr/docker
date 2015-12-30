@@ -7,6 +7,7 @@ MAINTAINER Skiychan <dev@skiy.net>
 #Install system library
 #RUN yum update -y
 RUN yum install -y gcc \
+    epel-release\
     gcc-c++ \
     autoconf \
     automake \
@@ -17,8 +18,7 @@ RUN yum install -y gcc \
 
 #Install PHP library
 ## libmcrypt-devel DIY
-RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm && \
-    yum install -y wget \
+RUN yum install -y wget \
     zlib \
     zlib-devel \
     openssl \
