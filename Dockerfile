@@ -114,20 +114,13 @@ RUN cd /home/nginx-php/php-7.0.1 && \
     cp /usr/local/php7/etc/php-fpm.conf.default /usr/local/php7/etc/php-fpm.conf && \
     cp /usr/local/php7/etc/php-fpm.d/www.conf.default /usr/local/php7/etc/php-fpm.d/www.conf
 
-#Install supervisor
-RUN easy_install supervisor && \
-    mkdir -p /var/log/supervisor && \
-    mkdir -p /var/run/sshd && \
-    mkdir -p /var/run/supervisord
 
-#Add supervisord conf
-ADD supervisord.conf /etc/supervisord.conf
 
 #Remove zips
 RUN cd / && rm -rf /home/nginx-php
 
 #Create web folder
-VOLUME ["/data/www", "/usr/local/nginx/conf/ssl", "/usr/local/nginx/conf/vhost"]
+VOLUME ["/usr/local/nginx/conf"]
 ADD index.php /data/www/index.php
 
 #Update nginx config
