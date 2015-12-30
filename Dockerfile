@@ -121,14 +121,14 @@ RUN cd / && rm -rf /home/nginx-php
 
 #Create web folder
 VOLUME ["/usr/local/nginx/conf"]
-ADD index.php /data/www/index.php
+#ADD index.php /data/www/index.php
 
 #Update nginx config
-ADD nginx.conf /usr/local/nginx/conf/nginx.conf
+#ADD nginx.conf /usr/local/nginx/conf/nginx.conf
 
 #Start
-ADD start.sh /start.sh
-RUN chmod +x /start.sh
+#ADD start.sh /start.sh
+#RUN chmod +x /start.sh
 
 #Set port
 EXPOSE 80 443
@@ -136,4 +136,4 @@ EXPOSE 80 443
 #ENTRYPOINT ["/start.sh"]
 
 #Start web server
-CMD ["/bin/bash", "/start.sh"]
+#CMD ["/bin/bash", "/start.sh"]
