@@ -127,13 +127,18 @@ RUN cd /home/nginx-php/php-7.0.1 && \
 RUN cd / && rm -rf /home/nginx-php
 
 #Create web folder
-VOLUME ["/usr/local/nginx/conf"]
+VOLUME ["/usr/local/nginx"]
 #ADD index.php /data/www/index.php
 
 #Update nginx config
+ADD default.conf /usr/local/nginx/conf/con.d/default.conf
 ADD nginx.service /usr/lib/systemd/system/nginx.service
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
 
+RUN systemctl enable php-fpm &&\
+    systemctl start php-fpm &&\
+    systemctl enable nginx &&\
+    systemctl start nginx
 #Start
 #ADD start.sh /start.sh
 #RUN chmod +x /start.sh
