@@ -57,9 +57,9 @@ RUN cd /home/nginx-php && \
     cd nginx-1.9.9 && \
     ./configure --prefix=/usr/local/nginx \
     --user=www --group=www \
-    --error-log-path=/var/log/nginx_error.log \
-    --http-log-path=/var/log/nginx_access.log \
-    --pid-path=/var/run/nginx.pid \
+    --error-log-path=/usr/log/nginx_error.log \
+    --http-log-path=/usr/log/nginx_access.log \
+    --pid-path=/usr/run/nginx.pid \
     --with-pcre \
     --with-http_ssl_module \
     --without-mail_pop3_module \
@@ -135,9 +135,6 @@ ADD default.conf /usr/local/nginx/conf/con.d/default.conf
 ADD nginx.service /usr/lib/systemd/system/nginx.service
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
 
-RUN systemctl enable php-fpm &&\
-
-    systemctl enable nginx 
 
 #Start
 #ADD start.sh /start.sh
