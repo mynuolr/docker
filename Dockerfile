@@ -57,8 +57,8 @@ RUN cd /home/nginx-php && \
     cd nginx-1.9.9 && \
     ./configure --prefix=/usr/local/nginx \
     --user=www --group=www \
-    --error-log-path=/usr/log/nginx_error.log \
-    --http-log-path=/usr/log/nginx_access.log \
+    --error-log-path=/usr/log/nginx/error.log \
+    --http-log-path=/usr/log/nginx/access.log \
     --pid-path=/usr/run/nginx.pid \
     --with-pcre \
     --with-http_ssl_module \
