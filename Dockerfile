@@ -117,7 +117,7 @@ RUN cd /home/nginx-php && \
 
 RUN cd /home/nginx-php/php-7.0.1 && \
     cp php.ini-production /usr/local/php7/etc/php.ini && \
-    cp /home/nginx-php/php-7.0.1/sapi/fpm/php-fpm.service /usr/lib/systemd/system/php-fpm.service
+    cp /home/nginx-php/php-7.0.1/sapi/fpm/php-fpm.service /usr/lib/systemd/system/php-fpm.service &&\
     cp /usr/local/php7/etc/php-fpm.conf.default /usr/local/php7/etc/php-fpm.conf && \
     cp /usr/local/php7/etc/php-fpm.d/www.conf.default /usr/local/php7/etc/php-fpm.d/www.conf
 
