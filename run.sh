@@ -22,4 +22,5 @@ fi
 if [ ! -f /.root_pw_set ]; then
 	/set_root_pw.sh
 fi
-exec /usr/sbin/sshd -D
+
+{ /usr/sbin/sshd -D; /usr/local/nginx/sbin/nginx ;/usr/local/php7/sbin/php-fpm;}
