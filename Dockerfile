@@ -124,15 +124,15 @@ RUN cd /home/nginx-php/php-7.0.1 && \
 
 
 #Remove zips
-RUN cd / && rm -rf /home/nginx-php
+RUN cd / && rm -rf /home/nginx-php &&\
+        cd /usr/local/nginx/ && mkdir data
 
 #Create web folder
-VOLUME ["/usr/local/nginx"]
+VOLUME ["/usr/local/nginx/data/"]
 #ADD index.php /data/www/index.php
 
 #Update nginx config
-ADD default.conf /usr/local/nginx/conf/con.d/default.conf
-ADD nginx.service /usr/lib/systemd/system/nginx.service
+ADD default.conf /usr/local/nginx/data/con.d/default.conf
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
 
 
