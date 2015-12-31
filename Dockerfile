@@ -132,7 +132,10 @@ VOLUME ["/usr/local/nginx/data/"]
 #ADD index.php /data/www/index.php
 
 #Update nginx config
-ADD default.conf /usr/local/nginx/data/con.d/default.conf
+RUN cd /usr/local/nginx/data/ && \
+    mkdir conf.d &&\
+    mkdir web
+ADD default.conf /usr/local/nginx/data/conf.d/default.conf
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
 
 
